@@ -28,9 +28,9 @@ Inspired by https://github.com/biezhi/dev-fun
 
 
 Usage:
-dev-fun github
+dev-fun github [search keyword]
 dev-fun news
-dev-fun films
+dev-fun films [film name]
 ```
 
 **Show Github Trending**
