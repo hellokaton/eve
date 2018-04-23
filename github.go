@@ -10,6 +10,8 @@ import (
 	"github.com/olekukonko/tablewriter"
 )
 
+// ShowGithubTrending show github trending
+// default is today
 func ShowGithubTrending() {
 	trend := trending.NewTrending()
 
@@ -36,7 +38,7 @@ func ShowGithubTrending() {
 		tablewriter.Colors{tablewriter.Bold, tablewriter.FgBlackColor},
 		tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiGreenColor})
 
-	var shortUrls []string = make([]string, len(projects))
+	shortUrls := make([]string, len(projects))
 	for index, project := range projects {
 		URL := GetShortURL(project.URL.String())
 		shortUrls[index] = URL

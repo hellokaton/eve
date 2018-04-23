@@ -31,9 +31,9 @@ Inspired by https://github.com/biezhi/dev-fun
 func displayUsage() {
 	fmt.Println(logo)
 	fmt.Println("Usage:")
-	fmt.Println("dev-fun github")
+	fmt.Println("dev-fun github [search keyword]")
 	fmt.Println("dev-fun news")
-	fmt.Println("dev-fun films")
+	fmt.Println("dev-fun films [film name]")
 }
 
 // Options terminal args
@@ -64,7 +64,10 @@ func ParseArgs(args []string) *Options {
 // GetShortURL get sina short url
 func GetShortURL(url string) string {
 	reqURL := "http://api.t.sina.com.cn/short_url/shorten.json?source=3271760578&url_long=" + url
-	resp, _ := http.Get(reqURL)
+	resp, err := http.Get(reqURL)
+	if err != nil {
+		return ""
+	}
 	defer resp.Body.Close()
 	body, _ := ioutil.ReadAll(resp.Body)
 
