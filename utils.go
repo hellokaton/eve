@@ -41,6 +41,7 @@ type Options struct {
 	Github bool
 	News   bool
 	Films  bool
+	Query  string
 }
 
 // ParseArgs parse terminal arguments
@@ -48,28 +49,31 @@ func ParseArgs(args []string) *Options {
 	if len(os.Args) == 1 {
 		return nil
 	}
+	options := &Options{}
 
 	switch args[1] {
 	case "github":
-		return &Options{true, false, false}
+		options.Github = true
+		break
 	case "news":
-		return &Options{false, true, false}
+		options.News = true
+		break
 	case "films":
-		return &Options{false, false, true}
+		options.Films = true
+		break
 	default:
-		return &Options{false, false, false}
+		break
 	}
+	if len(os.Args) == 3 {
+		options.Query = args[2]
+	}
+	return options
 }
 
 // GetShortURL get sina short url
 func GetShortURL(url string) string {
 	reqURL := "http://api.t.sina.com.cn/short_url/shorten.json?source=3271760578&url_long=" + url
-	resp, err := http.Get(reqURL)
-	if err != nil {
-		return ""
-	}
-	defer resp.Body.Close()
-	body, _ := ioutil.ReadAll(resp.Body)
+	body := []byte(GetRequestBody(reqURL))
 
 	var urlArr []map[string]interface{}
 	if err := json.Unmarshal(body, &urlArr); err != nil {
@@ -78,4 +82,15 @@ func GetShortURL(url string) string {
 	}
 	result := urlArr[0]["url_short"]
 	return result.(string)
+}
+
+// GetRequestBody http get body
+func GetRequestBody(reqURL string) string {
+	resp, err := http.Get(reqURL)
+	if err != nil {
+		return ""
+	}
+	defer resp.Body.Close()
+	body, _ := ioutil.ReadAll(resp.Body)
+	return string(body)
 }

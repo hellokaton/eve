@@ -9,7 +9,7 @@ func main() {
 		os.Exit(0)
 	}
 	if options.Github {
-		ShowGithubTrending()
+		ShowGithubInfo(options.Query)
 	}
 	if options.News {
 		// TODO
