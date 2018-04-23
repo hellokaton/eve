@@ -8,4 +8,13 @@ func main() {
 		displayUsage()
 		os.Exit(0)
 	}
+	if options.Github {
+		ShowGithubTrending()
+	}
+	if options.News {
+		// TODO
+	}
+	if options.Films {
+		// TODO
+	}
 }

@@ -12,7 +12,6 @@ var (
 	// Version of namebeta
 	Version = "0.1"
 	logo    = `
-
 	888                          .d888                   
 	888                         d88P"                    
 	888                         888                      
