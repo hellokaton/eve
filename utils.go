@@ -73,15 +73,12 @@ func ParseArgs(args []string) *Options {
 // GetShortURL get sina short url
 func GetShortURL(url string) string {
 	reqURL := "http://api.t.sina.com.cn/short_url/shorten.json?source=3271760578&url_long=" + url
-	body := []byte(GetRequestBody(reqURL))
-
 	var urlArr []map[string]interface{}
-	if err := json.Unmarshal(body, &urlArr); err != nil {
+	if err := json.Unmarshal([]byte(GetRequestBody(reqURL)), &urlArr); err != nil {
 		fmt.Println(err)
 		return ""
 	}
-	result := urlArr[0]["url_short"]
-	return result.(string)
+	return urlArr[0]["url_short"].(string)
 }
 
 // GetRequestBody http get body

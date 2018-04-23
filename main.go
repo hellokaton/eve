@@ -12,9 +12,9 @@ func main() {
 		ShowGithubInfo(options.Query)
 	}
 	if options.News {
-		// TODO
+		ShowNews()
 	}
 	if options.Films {
-		// TODO
+		ShowFilms(options.Query)
 	}
 }
