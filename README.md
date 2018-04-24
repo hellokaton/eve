@@ -1,36 +1,40 @@
-# dev-fun
+# eve
 
-👻 github / film / news, happy developer tools.
+👻 everyday explore, Github / HackNews / V2EX / Medium / Product Hunt.
+
+[![GoDoc](https://godoc.org/github.com/biezhi/eve/github?status.svg)](https://godoc.org/github.com/biezhi/eve/github) [![Build Status](https://travis-ci.org/biezhi/eve.svg?branch=master)](https://travis-ci.org/biezhi/eve)
 
 ## Usage
 
 by go
 
 ```bash
-go get -u https://github.com/biezhi/dev-fun
+go get -u https://github.com/biezhi/eve
 ```
 
 ```bash
-» dev-fun
+» eve
 
-	888                          .d888
-	888                         d88P"
-	888                         888
-.d88888  .d88b.  888  888       888888 888  888 88888b.
-d88" 888 d8P  Y8b 888  888       888    888  888 888 "88b
-888  888 88888888 Y88  88P       888    888  888 888  888
-Y88b 888 Y8b.      Y8bd8P        888    Y88b 888 888  888
-"Y88888  "Y8888    Y88P         888     "Y88888 888  888
+______   __   __ ______
+/\  ___\ /\ \ / //\  ___\
+\ \  __\ \ \ \'/ \ \  __\
+ \ \_____\\ \__|  \ \_____\
+  \/_____/ \/_/    \/_____/
 
-Dev Fun v0.0.1
+eve v0.0.1
 
-Inspired by https://github.com/biezhi/dev-fun
+everyday explore.
 
+Inspired by https://github.com/biezhi/eve
 
 Usage:
-dev-fun github [search keyword]
-dev-fun news
-dev-fun films [film name]
+eve github [search keyword]
+eve news
+eve v2ex
+eve hacknews
+eve zhihu
+eve ph
+eve medium
 ```
 
 **Show Github Trending**

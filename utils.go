@@ -12,28 +12,30 @@ var (
 	// Version of namebeta
 	Version = "0.1"
 	logo    = `
-	888                          .d888                   
-	888                         d88P"                    
-	888                         888                      
-.d88888  .d88b.  888  888       888888 888  888 88888b.  
-d88" 888 d8P  Y8b 888  888       888    888  888 888 "88b 
-888  888 88888888 Y88  88P       888    888  888 888  888 
-Y88b 888 Y8b.      Y8bd8P        888    Y88b 888 888  888 
-"Y88888  "Y8888    Y88P         888     "Y88888 888  888 
-														 
-Dev Fun v0.0.1
+______   __   __ ______    
+/\  ___\ /\ \ / //\  ___\   
+\ \  __\ \ \ \'/ \ \  __\   
+ \ \_____\\ \__|  \ \_____\ 
+  \/_____/ \/_/    \/_____/ 
+  
+eve v0.0.1
 
-Inspired by https://github.com/biezhi/dev-fun
+everyday explore.
 
+Inspired by https://github.com/biezhi/eve
 `
 )
 
 func displayUsage() {
 	fmt.Println(logo)
 	fmt.Println("Usage:")
-	fmt.Println("dev-fun github [search keyword]")
-	fmt.Println("dev-fun news")
-	fmt.Println("dev-fun films [film name]")
+	fmt.Println("eve github [search keyword]")
+	fmt.Println("eve news")
+	fmt.Println("eve v2ex")
+	fmt.Println("eve hacknews")
+	fmt.Println("eve zhihu")
+	fmt.Println("eve ph")
+	fmt.Println("eve medium")
 }
 
 // Options terminal args
