@@ -36,5 +36,6 @@ release:
 clean:
 	$(GOCLEAN)
 	$(RMTARGZ)
-
+test:
+	go test -v
 .PHONY: clean build
