@@ -8,19 +8,12 @@ import (
 	"github.com/olekukonko/tablewriter"
 )
 
-// Topic topic
-type Topic struct {
-	Title   string `json:"title,omitempty"`
-	URL     string `json:"url,omitempty"`
-	Content string `json:"content,omitempty"`
-}
-
 // GetV2EX get hot topics
-func getV2EX() []Topic {
+func getV2EX() []BaseArticle {
 	url := "https://www.v2ex.com/api/topics/hot.json"
 	body := GetRequestBody(url)
 
-	var resp []Topic
+	var resp []BaseArticle
 	if err := json.Unmarshal(body, &resp); err != nil {
 		return nil
 	}
@@ -34,6 +27,8 @@ func ShowHotTopic() {
 	topics := getV2EX()
 
 	table := tablewriter.NewWriter(os.Stdout)
+	table.SetColWidth(70)
+
 	table.SetHeader([]string{"Title", "URL"})
 	table.SetAlignment(tablewriter.ALIGN_LEFT)
 	table.SetBorder(false)
@@ -54,9 +49,6 @@ func ShowHotTopic() {
 	for index, topic := range topics {
 		URL := shortUrls[index]
 		Title := RemoveSpace(topic.Title)
-		if len(Title) > 30 {
-			Title = string([]rune(Title)[:27]) + "..."
-		}
 		row := []string{Title, URL}
 		table.Append(row)
 	}

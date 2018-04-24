@@ -2,4 +2,9 @@ language: go
 sudo: false
 
 go:
-  - 1.10.1
+  - 1.10
+
+install:
+  - go get github.com/biezhi/moe
+  - go get github.com/olekukonko/tablewriter
+  - go get github.com/andygrunwald/go-trending

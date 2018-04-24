@@ -27,9 +27,17 @@ Inspired by https://github.com/biezhi/eve
 `
 )
 
+// BaseArticle topic
+type BaseArticle struct {
+	Title   string `json:"title,omitempty"`
+	URL     string `json:"url,omitempty"`
+	Content string `json:"content,omitempty"`
+}
+
 func displayUsage() {
 	fmt.Println(logo)
 	fmt.Println("Usage:")
+	fmt.Println("eve news")
 	fmt.Println("eve github [search keyword]")
 	fmt.Println("eve v2ex")
 	fmt.Println("eve hn (HackNews)")
@@ -41,6 +49,7 @@ func displayUsage() {
 
 // Options terminal args
 type Options struct {
+	News        bool
 	Github      bool
 	Films       bool
 	V2EX        bool
@@ -58,6 +67,9 @@ func ParseArgs(args []string) *Options {
 	options := &Options{}
 
 	switch args[1] {
+	case "news":
+		options.News = true
+		break
 	case "github":
 		options.Github = true
 		break

@@ -48,6 +48,7 @@ func ShowGithubInfo(q string) {
 	}
 
 	table := tablewriter.NewWriter(os.Stdout)
+
 	table.SetHeader([]string{"Project", "Stars", "Description", "URL"})
 	table.SetAlignment(tablewriter.ALIGN_LEFT)
 	table.SetBorder(false)

@@ -8,6 +8,9 @@ func main() {
 		displayUsage()
 		os.Exit(0)
 	}
+	if options.News {
+		ShowNews()
+	}
 	if options.Github {
 		ShowGithubInfo(options.Query)
 	}

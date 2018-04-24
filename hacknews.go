@@ -9,15 +9,10 @@ import (
 	"github.com/olekukonko/tablewriter"
 )
 
-type HackNews struct {
-	Title string `json:"title,omitempty"`
-	URL   string `json:"url,omitempty"`
-}
-
 type HackNewsResp struct {
-	Articles     []HackNews `json:"articles,omitempty"`
-	Status       string     `json:"status,omitempty"`
-	TotalResults int        `json:"totalResults,omitempty"`
+	Articles     []BaseArticle `json:"articles,omitempty"`
+	Status       string        `json:"status,omitempty"`
+	TotalResults int           `json:"totalResults,omitempty"`
 }
 
 func ShowHackNews() {
@@ -31,6 +26,8 @@ func ShowHackNews() {
 	}
 
 	table := tablewriter.NewWriter(os.Stdout)
+	table.SetColWidth(70)
+
 	table.SetHeader([]string{"Title", "URL"})
 	table.SetAlignment(tablewriter.ALIGN_LEFT)
 	table.SetBorder(false)
