@@ -43,6 +43,7 @@ type Options struct {
 	Github bool
 	News   bool
 	Films  bool
+	V2EX   bool
 	Query  string
 }
 
@@ -62,6 +63,9 @@ func ParseArgs(args []string) *Options {
 		break
 	case "films":
 		options.Films = true
+		break
+	case "v2ex":
+		options.V2EX = true
 		break
 	default:
 		break
@@ -84,12 +88,12 @@ func GetShortURL(url string) string {
 }
 
 // GetRequestBody http get body
-func GetRequestBody(reqURL string) string {
+func GetRequestBody(reqURL string) []byte {
 	resp, err := http.Get(reqURL)
 	if err != nil {
-		return ""
+		return nil
 	}
 	defer resp.Body.Close()
 	body, _ := ioutil.ReadAll(resp.Body)
-	return string(body)
+	return body
 }

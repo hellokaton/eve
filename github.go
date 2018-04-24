@@ -92,7 +92,7 @@ func queryRepo(q string) {
 	body := GetRequestBody(url)
 
 	var resp GithubRepoResp
-	if err := json.Unmarshal([]byte(body), &resp); err != nil {
+	if err := json.Unmarshal(body, &resp); err != nil {
 
 	}
 

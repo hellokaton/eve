@@ -17,4 +17,7 @@ func main() {
 	if options.Films {
 		ShowFilms(options.Query)
 	}
+	if options.V2EX {
+		ShowHotTopic()
+	}
 }
