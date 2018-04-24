@@ -3,6 +3,7 @@
 👻 everyday explore, Github / HackNews / V2EX / Medium / Product Hunt.
 
 [![GoDoc](https://godoc.org/github.com/biezhi/eve/github?status.svg)](https://godoc.org/github.com/biezhi/eve/github) [![Build Status](https://travis-ci.org/biezhi/eve.svg?branch=master)](https://travis-ci.org/biezhi/eve)
+[![Go Report Card](https://goreportcard.com/badge/github.com/biezhi/eve)](https://goreportcard.com/report/github.com/biezhi/eve)
 
 ## Usage
 
