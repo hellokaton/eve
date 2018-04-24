@@ -1,5 +1,5 @@
 # Binary name
-BINARY=dev-fun
+BINARY=eve
 GOBUILD=go build -ldflags "-s -w -X main.Version=${VERSION}" -o ${BINARY} && upx ./${BINARY}
 GOCLEAN=go clean
 RMTARGZ=rm -rf *.gz
