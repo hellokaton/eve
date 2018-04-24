@@ -15,7 +15,6 @@ go get -u https://github.com/biezhi/eve
 
 ```bash
 » eve
-
 ______   __   __ ______
 /\  ___\ /\ \ / //\  ___\
 \ \  __\ \ \ \'/ \ \  __\
@@ -30,11 +29,10 @@ Inspired by https://github.com/biezhi/eve
 
 Usage:
 eve github [search keyword]
-eve news
 eve v2ex
-eve hacknews
-eve zhihu
-eve ph
+eve hn (HackNews)
+eve tc (TechCrunch)
+eve ph (Product Hunt)
 eve medium
 ```
 

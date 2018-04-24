@@ -11,13 +11,16 @@ func main() {
 	if options.Github {
 		ShowGithubInfo(options.Query)
 	}
-	if options.News {
-		ShowNews()
-	}
 	if options.Films {
 		ShowFilms(options.Query)
 	}
 	if options.V2EX {
 		ShowHotTopic()
+	}
+	if options.HackNews {
+		ShowHackNews()
+	}
+	if options.TechCrunch {
+		ShowTechCrunch()
 	}
 }

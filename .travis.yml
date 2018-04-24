@@ -2,6 +2,4 @@ language: go
 sudo: false
 
 go:
-  - master
-
-script: make test
+  - 1.10.1

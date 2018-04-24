@@ -52,14 +52,14 @@ func ShowGithubInfo(q string) {
 	table.SetAlignment(tablewriter.ALIGN_LEFT)
 	table.SetBorder(false)
 
-	table.SetHeaderColor(tablewriter.Colors{tablewriter.Bold, tablewriter.BgGreenColor},
-		tablewriter.Colors{tablewriter.FgHiRedColor, tablewriter.Bold, tablewriter.BgBlackColor},
-		tablewriter.Colors{tablewriter.BgRedColor, tablewriter.FgWhiteColor},
-		tablewriter.Colors{tablewriter.BgRedColor, tablewriter.FgBlueColor})
+	table.SetHeaderColor(tablewriter.Colors{tablewriter.Bold, tablewriter.BgBlackColor},
+		tablewriter.Colors{tablewriter.Bold, tablewriter.BgBlackColor},
+		tablewriter.Colors{tablewriter.Bold, tablewriter.BgBlackColor},
+		tablewriter.Colors{tablewriter.Bold, tablewriter.BgBlackColor})
 
-	table.SetColumnColor(tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiBlackColor},
-		tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiRedColor},
-		tablewriter.Colors{tablewriter.Bold, tablewriter.FgBlackColor},
+	table.SetColumnColor(tablewriter.Colors{tablewriter.Bold, tablewriter.FgRedColor},
+		tablewriter.Colors{tablewriter.Bold, tablewriter.FgYellowColor},
+		tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiMagentaColor},
 		tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiGreenColor})
 
 	shortUrls := make([]string, len(projects))
@@ -93,7 +93,8 @@ func queryRepo(q string) {
 
 	var resp GithubRepoResp
 	if err := json.Unmarshal(body, &resp); err != nil {
-
+		log.Fatalln("Search [" + q + "] fail")
+		return
 	}
 
 	table := tablewriter.NewWriter(os.Stdout)
@@ -101,15 +102,15 @@ func queryRepo(q string) {
 	table.SetAlignment(tablewriter.ALIGN_LEFT)
 	table.SetBorder(false)
 
-	table.SetHeaderColor(tablewriter.Colors{tablewriter.Bold, tablewriter.BgGreenColor},
-		tablewriter.Colors{tablewriter.FgHiRedColor, tablewriter.Bold, tablewriter.BgBlackColor},
-		tablewriter.Colors{tablewriter.BgRedColor, tablewriter.FgWhiteColor},
-		tablewriter.Colors{tablewriter.BgRedColor, tablewriter.FgCyanColor},
-		tablewriter.Colors{tablewriter.BgRedColor, tablewriter.FgBlueColor})
+	table.SetHeaderColor(tablewriter.Colors{tablewriter.Bold, tablewriter.BgBlackColor},
+		tablewriter.Colors{tablewriter.Bold, tablewriter.BgBlackColor},
+		tablewriter.Colors{tablewriter.Bold, tablewriter.BgBlackColor},
+		tablewriter.Colors{tablewriter.Bold, tablewriter.BgBlackColor},
+		tablewriter.Colors{tablewriter.Bold, tablewriter.BgBlackColor})
 
-	table.SetColumnColor(tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiBlackColor},
-		tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiRedColor},
-		tablewriter.Colors{tablewriter.Bold, tablewriter.FgBlackColor},
+	table.SetColumnColor(tablewriter.Colors{tablewriter.Bold, tablewriter.FgRedColor},
+		tablewriter.Colors{tablewriter.Bold, tablewriter.FgYellowColor},
+		tablewriter.Colors{tablewriter.Bold, tablewriter.FgCyanColor},
 		tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiMagentaColor},
 		tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiGreenColor})
 

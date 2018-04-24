@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strings"
 )
 
 var (
@@ -30,21 +31,23 @@ func displayUsage() {
 	fmt.Println(logo)
 	fmt.Println("Usage:")
 	fmt.Println("eve github [search keyword]")
-	fmt.Println("eve news")
 	fmt.Println("eve v2ex")
-	fmt.Println("eve hacknews")
-	fmt.Println("eve zhihu")
-	fmt.Println("eve ph")
+	fmt.Println("eve hn (HackNews)")
+	fmt.Println("eve tc (TechCrunch)")
+	// fmt.Println("eve zhihu")
+	fmt.Println("eve ph (Product Hunt)")
 	fmt.Println("eve medium")
 }
 
 // Options terminal args
 type Options struct {
-	Github bool
-	News   bool
-	Films  bool
-	V2EX   bool
-	Query  string
+	Github      bool
+	Films       bool
+	V2EX        bool
+	HackNews    bool
+	TechCrunch  bool
+	ProductHunt bool
+	Query       string
 }
 
 // ParseArgs parse terminal arguments
@@ -58,14 +61,20 @@ func ParseArgs(args []string) *Options {
 	case "github":
 		options.Github = true
 		break
-	case "news":
-		options.News = true
-		break
 	case "films":
 		options.Films = true
 		break
 	case "v2ex":
 		options.V2EX = true
+		break
+	case "hn":
+		options.HackNews = true
+		break
+	case "tc":
+		options.TechCrunch = true
+		break
+	case "ph":
+		options.ProductHunt = true
 		break
 	default:
 		break
@@ -96,4 +105,10 @@ func GetRequestBody(reqURL string) []byte {
 	defer resp.Body.Close()
 	body, _ := ioutil.ReadAll(resp.Body)
 	return body
+}
+
+func RemoveSpace(s string) string {
+	s = strings.Replace(s, " ", "", -1)
+	s = strings.Replace(s, "\n", "", -1)
+	return s
 }
