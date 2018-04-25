@@ -20,14 +20,15 @@ brew tap biezhi/tap && brew install eve
 ```
 
 ```bash
-» eve
+» go run *.go
+
 ______   __   __ ______
 /\  ___\ /\ \ / //\  ___\
 \ \  __\ \ \ \'/ \ \  __\
  \ \_____\\ \__|  \ \_____\
   \/_____/ \/_/    \/_____/
 
-eve v0.0.2
+eve v0.0.3
 
 everyday explore.
 
@@ -39,11 +40,13 @@ Usage:
 
     eve news             (show all news)
     eve github [keyword] (show github trending or search repo)
+    eve zhihu            (show zhihu hot topics)
+    eve jiandan          (show jiandan hot topics)
+    eve reddit           (show reddit hot topics)
+    eve medium           (show medium hot topics)
     eve v2ex             (show v2ex hot topics)
     eve hn               (show HackNews hot topics)
-    eve tc               (show TechCrunch hot topics)
     eve ph               (show Product Hunt hot product)
-    eve medium
     eve help             (show usage)
 ```
 

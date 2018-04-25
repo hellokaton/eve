@@ -7,14 +7,14 @@ import (
 )
 
 var (
-	logo    = `
+	logo = `
 ______   __   __ ______    
 /\  ___\ /\ \ / //\  ___\   
 \ \  __\ \ \ \'/ \ \  __\   
  \ \_____\\ \__|  \ \_____\ 
   \/_____/ \/_/    \/_____/ 
   
-eve v0.0.2
+eve v0.0.3
 
 everyday explore.
 
@@ -33,11 +33,13 @@ func displayUsage() {
 	green("    eve <option> [query]\n")
 	green("    eve news             (show all news)")
 	green("    eve github [keyword] (show github trending or search repo)")
+	green("    eve zhihu            (show zhihu hot topics)")
+	green("    eve jiandan          (show jiandan hot topics)")
+	green("    eve reddit           (show reddit hot topics)")
+	green("    eve medium           (show medium hot topics)")
 	green("    eve v2ex             (show v2ex hot topics)")
 	green("    eve hn               (show HackNews hot topics)")
-	green("    eve tc               (show TechCrunch hot topics)")
 	green("    eve ph               (show Product Hunt hot product)")
-	green("    eve medium")
 	green("    eve help             (show usage)")
 }
 
@@ -48,7 +50,7 @@ func main() {
 		os.Exit(0)
 	}
 	if options.News {
-		ShowNews()
+		ShowNews("")
 	}
 	if options.Github {
 		ShowGithubInfo(options.Query)
@@ -56,13 +58,25 @@ func main() {
 	if options.Films {
 		ShowFilms(options.Query)
 	}
-	if options.V2EX {
-		ShowHotTopic()
+	if options.Zhihu {
+		ShowNews("zhihu")
+	}
+	if options.JianDan {
+		ShowNews("jiandan")
 	}
 	if options.HackNews {
-		ShowHackNews()
+		ShowNewsApi("hacker-news")
 	}
-	if options.TechCrunch {
-		ShowTechCrunch()
+	if options.Reddit {
+		ShowNewsApi("reddit-r-all")
+	}
+	if options.Medium {
+		ShowNews("medium")
+	}
+	if options.ProductHunt {
+		ShowNews("ph")
+	}
+	if options.V2EX {
+		ShowHotTopic()
 	}
 }
