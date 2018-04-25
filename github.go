@@ -9,6 +9,7 @@ import (
 	trending "github.com/andygrunwald/go-trending"
 	"github.com/biezhi/moe"
 	"github.com/olekukonko/tablewriter"
+	"github.com/biezhi/eve/utils"
 )
 
 // Repository represents a GitHub repository.
@@ -65,7 +66,7 @@ func ShowGithubInfo(q string) {
 
 	shortUrls := make([]string, len(projects))
 	for index, project := range projects {
-		URL := GetShortURL(project.URL.String())
+		URL := utils.GetShortURL(project.URL.String())
 		shortUrls[index] = URL
 	}
 
@@ -90,7 +91,7 @@ func ShowGithubInfo(q string) {
 func queryRepo(q string) {
 	moe := moe.New("query [" + q + "]").Color(moe.Green).Start()
 	url := "https://api.github.com/search/repositories?q=" + q
-	body := GetRequestBody(url)
+	body := utils.GetRequestBody(url)
 
 	var resp GithubRepoResp
 	if err := json.Unmarshal(body, &resp); err != nil {
@@ -117,7 +118,7 @@ func queryRepo(q string) {
 
 	shortUrls := make([]string, len(resp.Items))
 	for index, repo := range resp.Items {
-		URL := GetShortURL(repo.HTMLURL)
+		URL := utils.GetShortURL(repo.HTMLURL)
 		shortUrls[index] = URL
 	}
 	moe.Stop()

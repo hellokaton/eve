@@ -7,10 +7,11 @@ import (
 
 	"github.com/biezhi/moe"
 	"github.com/olekukonko/tablewriter"
+	"github.com/biezhi/eve/utils"
 )
 
 type HackNewsResp struct {
-	Articles     []BaseArticle `json:"articles,omitempty"`
+	Articles     []utils.BaseArticle `json:"articles,omitempty"`
 	Status       string        `json:"status,omitempty"`
 	TotalResults int           `json:"totalResults,omitempty"`
 }
@@ -18,7 +19,7 @@ type HackNewsResp struct {
 func ShowHackNews() {
 	moe := moe.New("loading hacknews...").Color(moe.Green).Start()
 	url := "https://newsapi.org/v2/top-headlines?sources=hacker-news&apiKey=b77ad5166e264aa999d117a8ca7ccba6"
-	body := GetRequestBody(url)
+	body := utils.GetRequestBody(url)
 	var resp HackNewsResp
 	if err := json.Unmarshal(body, &resp); err != nil {
 		log.Fatalln("load hacknews fail")
@@ -40,7 +41,7 @@ func ShowHackNews() {
 
 	shortUrls := make([]string, len(resp.Articles))
 	for index, article := range resp.Articles {
-		URL := GetShortURL(article.URL)
+		URL := utils.GetShortURL(article.URL)
 		shortUrls[index] = URL
 	}
 

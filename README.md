@@ -13,6 +13,12 @@ by go
 go get -u https://github.com/biezhi/eve
 ```
 
+by macOSX
+
+```bash
+brew tap biezhi/tap && brew install eve
+```
+
 ```bash
 » eve
 ______   __   __ ______
@@ -21,20 +27,24 @@ ______   __   __ ______
  \ \_____\\ \__|  \ \_____\
   \/_____/ \/_/    \/_____/
 
-eve v0.0.1
+eve v0.0.2
 
 everyday explore.
 
 Inspired by https://github.com/biezhi/eve
 
 Usage:
-eve news
-eve github [search keyword]
-eve v2ex
-eve hn (HackNews)
-eve tc (TechCrunch)
-eve ph (Product Hunt)
-eve medium
+
+    eve <option> [query]
+
+    eve news             (show all news)
+    eve github [keyword] (show github trending or search repo)
+    eve v2ex             (show v2ex hot topics)
+    eve hn               (show HackNews hot topics)
+    eve tc               (show TechCrunch hot topics)
+    eve ph               (show Product Hunt hot product)
+    eve medium
+    eve help             (show usage)
 ```
 
 **Show News**

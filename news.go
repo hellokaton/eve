@@ -7,14 +7,15 @@ import (
 
 	"github.com/biezhi/moe"
 	"github.com/olekukonko/tablewriter"
+	"github.com/biezhi/eve/utils"
 )
 
 func ShowNews() {
 	moe := moe.New("loading all news...").Color(moe.Green).Start()
 	url := "http://reader.one/api/all/hn,reddit,ph,dn,github,medium,lifehacker?limit=20"
-	body := GetRequestBody(url)
+	body := utils.GetRequestBody(url)
 
-	var resp []BaseArticle
+	var resp []utils.BaseArticle
 	if err := json.Unmarshal(body, &resp); err != nil {
 		log.Fatalln("load news fail")
 		return
@@ -35,7 +36,7 @@ func ShowNews() {
 
 	shortUrls := make([]string, len(resp))
 	for index, article := range resp {
-		URL := GetShortURL(article.URL)
+		URL := utils.GetShortURL(article.URL)
 		shortUrls[index] = URL
 	}
 

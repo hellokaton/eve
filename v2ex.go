@@ -6,14 +6,15 @@ import (
 
 	"github.com/biezhi/moe"
 	"github.com/olekukonko/tablewriter"
+	"github.com/biezhi/eve/utils"
 )
 
 // GetV2EX get hot topics
-func getV2EX() []BaseArticle {
+func getV2EX() []utils.BaseArticle {
 	url := "https://www.v2ex.com/api/topics/hot.json"
-	body := GetRequestBody(url)
+	body := utils.GetRequestBody(url)
 
-	var resp []BaseArticle
+	var resp []utils.BaseArticle
 	if err := json.Unmarshal(body, &resp); err != nil {
 		return nil
 	}
@@ -41,14 +42,14 @@ func ShowHotTopic() {
 
 	shortUrls := make([]string, len(topics))
 	for index, topic := range topics {
-		URL := GetShortURL(topic.URL)
+		URL := utils.GetShortURL(topic.URL)
 		shortUrls[index] = URL
 	}
 
 	moe.Stop()
 	for index, topic := range topics {
 		URL := shortUrls[index]
-		Title := RemoveSpace(topic.Title)
+		Title := utils.RemoveSpace(topic.Title)
 		row := []string{Title, URL}
 		table.Append(row)
 	}

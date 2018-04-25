@@ -1,4 +1,4 @@
-package main
+package utils
 
 import (
 	"encoding/json"
@@ -9,42 +9,11 @@ import (
 	"strings"
 )
 
-var (
-	// Version of namebeta
-	Version = "0.1"
-	logo    = `
-______   __   __ ______    
-/\  ___\ /\ \ / //\  ___\   
-\ \  __\ \ \ \'/ \ \  __\   
- \ \_____\\ \__|  \ \_____\ 
-  \/_____/ \/_/    \/_____/ 
-  
-eve v0.0.1
-
-everyday explore.
-
-Inspired by https://github.com/biezhi/eve
-`
-)
-
 // BaseArticle topic
 type BaseArticle struct {
 	Title   string `json:"title,omitempty"`
 	URL     string `json:"url,omitempty"`
 	Content string `json:"content,omitempty"`
-}
-
-func displayUsage() {
-	fmt.Println(logo)
-	fmt.Println("Usage:")
-	fmt.Println("eve news")
-	fmt.Println("eve github [search keyword]")
-	fmt.Println("eve v2ex")
-	fmt.Println("eve hn (HackNews)")
-	fmt.Println("eve tc (TechCrunch)")
-	// fmt.Println("eve zhihu")
-	fmt.Println("eve ph (Product Hunt)")
-	fmt.Println("eve medium")
 }
 
 // Options terminal args
@@ -88,6 +57,8 @@ func ParseArgs(args []string) *Options {
 	case "ph":
 		options.ProductHunt = true
 		break
+	case "help":
+		return nil
 	default:
 		break
 	}
