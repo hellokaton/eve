@@ -123,14 +123,18 @@ func MapToString(structs []BaseArticle, fieldName string) []string {
 }
 
 var wg sync.WaitGroup
+var lock sync.Mutex
 
 func GetShortURLArray(longUrls []string) map[string]*string {
-
 	shortUrls := make(map[string]*string, len(longUrls))
 	for _, url := range longUrls {
 		wg.Add(1)
 		go func(url string) {
-			defer wg.Done()
+			lock.Lock()
+			defer func() {
+				lock.Unlock()
+				wg.Done()
+			}()
 			URL := GetShortURL(url)
 			shortUrls[url] = &URL
 		}(url)

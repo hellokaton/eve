@@ -1,6 +1,6 @@
 # Binary name
 BINARY=eve
-GOBUILD=go build -ldflags "-s -w" -o ${BINARY} && upx ./${BINARY}
+GOBUILD=go build -ldflags "-s -w" -o ${BINARY}
 GOCLEAN=go clean
 RMTARGZ=rm -rf *.gz
 

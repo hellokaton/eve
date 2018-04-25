@@ -78,6 +78,6 @@ func main() {
 		ShowNews("ph")
 	}
 	if options.V2EX {
-		ShowHotTopic()
+		ShowNews("v2ex")
 	}
 }
