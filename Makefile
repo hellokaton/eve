@@ -28,10 +28,10 @@ release:
 	tar czvf ${BINARY}-linux64-${VERSION}.tar.gz ./${BINARY}
 	# Build for win
 	$(GOCLEAN)
-	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 $(GOBUILD)
-	tar czvf ${BINARY}-win64-${VERSION}.tar.gz ./${BINARY}.exe
-	$(GOCLEAN)
-	$(GOBUILD)
+	#CGO_ENABLED=0 GOOS=windows GOARCH=amd64 $(GOBUILD)
+	#tar czvf ${BINARY}-win64-${VERSION}.tar.gz ./${BINARY}.exe
+	#$(GOCLEAN)
+	#$(GOBUILD)
 # Cleans our projects: deletes binaries
 clean:
 	$(GOCLEAN)

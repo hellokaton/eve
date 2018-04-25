@@ -14,7 +14,7 @@ ______   __   __ ______
  \ \_____\\ \__|  \ \_____\ 
   \/_____/ \/_/    \/_____/ 
   
-eve v0.0.3
+eve v0.0.4
 
 everyday explore.
 
@@ -30,17 +30,17 @@ func displayUsage() {
 	fmt.Println(utils.Red(logo))
 
 	green("Usage:\n")
-	green("    eve <option> [query]\n")
-	green("    eve news             (show all news)")
-	green("    eve github [keyword] (show github trending or search repo)")
-	green("    eve zhihu            (show zhihu hot topics)")
-	green("    eve jiandan          (show jiandan hot topics)")
-	green("    eve reddit           (show reddit hot topics)")
-	green("    eve medium           (show medium hot topics)")
-	green("    eve v2ex             (show v2ex hot topics)")
-	green("    eve hn               (show HackNews hot topics)")
-	green("    eve ph               (show Product Hunt hot product)")
-	green("    eve help             (show usage)")
+	green("    eve <option>\n")
+	green("    eve news    (show all news)")
+	green("    eve github  (show github trending or search repo)")
+	green("    eve zhihu   (show zhihu hot topics)")
+	green("    eve jiandan (show jiandan hot topics)")
+	green("    eve reddit  (show reddit hot topics)")
+	green("    eve medium  (show medium hot topics)")
+	green("    eve v2ex    (show v2ex hot topics)")
+	green("    eve hn      (show HackNews hot topics)")
+	green("    eve ph      (show Product Hunt hot product)")
+	green("    eve help    (show usage)")
 }
 
 func main() {
@@ -53,7 +53,8 @@ func main() {
 		ShowNews("")
 	}
 	if options.Github {
-		ShowGithubInfo(options.Query)
+		//ShowGithubInfo(options.Query)
+		ShowNews("github")
 	}
 	if options.Films {
 		ShowFilms(options.Query)

@@ -28,7 +28,7 @@ ______   __   __ ______
  \ \_____\\ \__|  \ \_____\
   \/_____/ \/_/    \/_____/
 
-eve v0.0.3
+eve v0.0.4
 
 everyday explore.
 
@@ -36,18 +36,18 @@ Inspired by https://github.com/biezhi/eve
 
 Usage:
 
-    eve <option> [query]
+    eve <option>
 
-    eve news             (show all news)
-    eve github [keyword] (show github trending or search repo)
-    eve zhihu            (show zhihu hot topics)
-    eve jiandan          (show jiandan hot topics)
-    eve reddit           (show reddit hot topics)
-    eve medium           (show medium hot topics)
-    eve v2ex             (show v2ex hot topics)
-    eve hn               (show HackNews hot topics)
-    eve ph               (show Product Hunt hot product)
-    eve help             (show usage)
+    eve news    (show all news)
+    eve github  (show github trending or search repo)
+    eve zhihu   (show zhihu hot topics)
+    eve jiandan (show jiandan hot topics)
+    eve reddit  (show reddit hot topics)
+    eve medium  (show medium hot topics)
+    eve v2ex    (show v2ex hot topics)
+    eve hn      (show HackNews hot topics)
+    eve ph      (show Product Hunt hot product)
+    eve help    (show usage)
 ```
 
 **Show News**
@@ -223,35 +223,38 @@ Usage:
 **Show Github Trending**
 
 ```bash
-» eve github
-          PROJECT         | STARS |                 DESCRIPTION                  |         URL
-+-------------------------+-------+----------------------------------------------+---------------------+
-  foundationdb            | 6029  | FoundationDB - the open s...                 | http://t.cn/RmkzUPE
-  react-in-patterns       | 6823  | A free book that talks ab...                 | http://t.cn/Rtq5VmW
-  Coursera-ML-AndrewNg... | 1638  | 吴恩达老师的机器学习课程个人笔记...          | http://t.cn/RuAjHaj
-  picojs                  | 1997  | A face detection library ...                 | http://t.cn/RmsxiL0
-  deeplearning_ai_book... | 742   | deeplearning.ai（吴恩达老师的深度学...       | http://t.cn/Ru4lbUv
-  open-source-mac-os-a... | 5200  | 🚀 Awesome list of open so...                | http://t.cn/Rm7ePsz
-  WeYueReader             | 291   | Android开源项目-微Yue电子书阅读（MD设...     | http://t.cn/Ru4lb5D
-  vuepress                | 5360  | 📝 Minimalistic Vue-powere...                | http://t.cn/Ru4lbc0
-  img-2                   | 540   | Replace <img /> elements ...                 | http://t.cn/RuPZt5P
-  react-dates             | 6946  | An easily internationaliz...                 | http://t.cn/RtdwMmA
-  tabler                  | 11614 | Tabler is free and open-s...                 | http://t.cn/RmVb2ei
-  awesome-conference-p... | 362   | Did you like anything in ...                 | http://t.cn/Ru4lbxY
-  coding-interview-uni... | 61126 | A complete computer scien...                 | http://t.cn/Riu7FDl
-  graal                   | 3790  | GraalVM: Run Programs Fas...                 | http://t.cn/Rm1Z9r1
-  tensorflow              | 97280 | Computation using data fl...                 | http://t.cn/RUpxSPw
-  text-mask               | 4763  | Input mask for React, Ang...                 | http://t.cn/RtslIup
-  gitignore               | 65463 | A collection of useful .g...                 | http://t.cn/hgWKZ1
-  tidis                   | 310   | Distributed NoSQL databas...                 | http://t.cn/Ru4p76O
-  vue                     | 91892 | 🖖 A progressive, incremen...                | http://t.cn/RyeYV1B
-  Interview-Notebook      | 18692 | 📚                                           | http://t.cn/REivyQD
-                          |       | 技术面试需要掌握的基础知识整理，欢迎编辑~... |
-  frontend-vscode-exte... | 293   | Handpicked collection of ...                 | http://t.cn/RnOiOp9
-  aseprite                | 2697  | Animated sprite editor & ...                 | http://t.cn/RAeUp0Z
-  slugify                 | 453   | Slugify a string                             | http://t.cn/Ru4lbHO
-  models                  | 33619 | Models and examples built...                 | http://t.cn/RGgv6vN
-  hands_on_Ml_with_Skl... | 227   | OReilly Hands On Machine ...                 | http://t.cn/Ruy7BjQ
+                                  TITLE                                  |         URL
++------------------------------------------------------------------------+---------------------+
+  Xin-Yue - 岳昕：致北大师生与北大外国语学院的一封公开信                 | http://t.cn/RuUTAm0
+  dayjs - ⏰Fast 2KB immutable date library alternative to Moment.js     | http://t.cn/RuGNYL3
+  with the same modern API                                               |
+  css-blocks - High performance, maintainable stylesheets.               | http://t.cn/RutCqpd
+  react-in-patterns - A free book that talks about design                | http://t.cn/Rtq5VmW
+  patterns/techniques used while developing with React.                  |
+  muffet - Fast website link checker in Go                               | http://t.cn/RuGNYcr
+  picojs - A face detection library in 200 lines of JavaScript           | http://t.cn/RmsxiL0
+  Coursera-ML-AndrewNg-Notes - 吴恩达老师的机器学习课程个人笔记          | http://t.cn/RuAjHaj
+  foundationdb - FoundationDB - the open source, distributed,            | http://t.cn/RmkzUPE
+  transactional key-value store                                          |
+  Interview-Notebook - 📚 技术面试需要掌握的基础知识整理，欢迎编辑~      | http://t.cn/REivyQD
+  deeplearning_ai_books -                                                | http://t.cn/Ru4lbUv
+  deeplearning.ai（吴恩达老师的深度学习课程笔记及资源）                  |
+  san - San is a flexible JavaScript component framework                 | http://t.cn/RuqtenI
+  coding-interview-university - A complete computer science study plan   | http://t.cn/Riu7FDl
+  to become a software engineer.                                         |
+  open-source-mac-os-apps - 🚀 Awesome list of open source applications  | http://t.cn/Rm7ePsz
+  for macOS.                                                             |
+  PyTorch-GAN - PyTorch implementations of Generative Adversarial        | http://t.cn/RublAfg
+  Networks.                                                              |
+  vuepress - 📝 Minimalistic Vue-powered static site generator           | http://t.cn/Ru4lbc0
+  opticss - A CSS Optimizer                                              | http://t.cn/Rucn3W7
+  text-mask - Input mask for React, Angular, Ember, Vue, & plain         | http://t.cn/RtslIup
+  JavaScript                                                             |
+  shofel2 - Tegra X1 bootrom exploit                                     | http://t.cn/RuGa0HC
+  fusee-launcher - ReSwitched's work-in-progress launcher for one of the | http://t.cn/RuGvly5
+  Tegra X1 bootROM exploits                                              |
+  tensorflow - Computation using data flow graphs for scalable machine   | http://t.cn/RUpxSPw
+  learning                                                               |
 ```
 
 **Show V2EX**

@@ -6,4 +6,3 @@ go:
 install:
   - go get github.com/biezhi/moe
   - go get github.com/olekukonko/tablewriter
-  - go get github.com/andygrunwald/go-trending

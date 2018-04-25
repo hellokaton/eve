@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"sync"
+	"reflect"
 )
 
 // BaseArticle topic
@@ -83,9 +85,13 @@ func ParseArgs(args []string) *Options {
 // GetShortURL get sina short url
 func GetShortURL(url string) string {
 	reqURL := "http://api.t.sina.com.cn/short_url/shorten.json?source=3271760578&url_long=" + url
+	if url == "" {
+		return ""
+	}
 	var urlArr []map[string]interface{}
-	if err := json.Unmarshal([]byte(GetRequestBody(reqURL)), &urlArr); err != nil {
-		fmt.Println(err)
+	body := GetRequestBody(reqURL)
+	if err := json.Unmarshal(body, &urlArr); err != nil {
+		fmt.Println("获取短链接失败", string(body), "\n", err)
 		return ""
 	}
 	return urlArr[0]["url_short"].(string)
@@ -106,4 +112,31 @@ func RemoveSpace(s string) string {
 	s = strings.Replace(s, " ", "", -1)
 	s = strings.Replace(s, "\n", "", -1)
 	return s
+}
+
+func MapToString(structs []BaseArticle, fieldName string) []string {
+	result := make([]string, len(structs))
+	for _, item := range structs {
+		v := reflect.ValueOf(item)
+		f := v.FieldByName(fieldName)
+		result = append(result, f.String())
+	}
+	return result
+}
+
+var wg sync.WaitGroup
+
+func GetShortURLArray(longUrls []string) map[string]*string {
+
+	shortUrls := make(map[string]*string, len(longUrls))
+	for _, url := range longUrls {
+		wg.Add(1)
+		go func(url string) {
+			defer wg.Done()
+			URL := GetShortURL(url)
+			shortUrls[url] = &URL
+		}(url)
+	}
+	wg.Wait()
+	return shortUrls
 }

@@ -45,17 +45,14 @@ func ShowNews(q string) {
 	table.SetColumnColor(tablewriter.Colors{tablewriter.Bold, tablewriter.FgRedColor},
 		tablewriter.Colors{tablewriter.Bold, tablewriter.FgBlueColor})
 
-	shortUrls := make([]string, len(resp))
-	for index, article := range resp {
-		URL := utils.GetShortURL(article.URL)
-		shortUrls[index] = URL
-	}
+	items := utils.MapToString(resp, "URL")
+	shortUrls := utils.GetShortURLArray(items)
 
 	moe.Stop()
-	for index, article := range resp {
-		URL := shortUrls[index]
+	for _, article := range resp {
+		URL := shortUrls[article.URL]
 		Title := article.Title
-		row := []string{Title, URL}
+		row := []string{Title, *URL}
 		table.Append(row)
 	}
 	table.Render()
