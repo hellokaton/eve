@@ -2,7 +2,6 @@ package utils
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -91,7 +90,6 @@ func GetShortURL(url string) string {
 	var urlArr []map[string]interface{}
 	body := GetRequestBody(reqURL)
 	if err := json.Unmarshal(body, &urlArr); err != nil {
-		fmt.Println("获取短链接失败", string(body), "\n", err)
 		return ""
 	}
 	return urlArr[0]["url_short"].(string)

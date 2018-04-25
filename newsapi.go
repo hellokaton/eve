@@ -81,20 +81,17 @@ func ShowNewsApi(source string) {
 	table.SetColumnColor(tablewriter.Colors{tablewriter.Bold, tablewriter.FgRedColor},
 		tablewriter.Colors{tablewriter.Bold, tablewriter.FgBlueColor})
 
-	shortUrls := make([]string, len(resp.Articles))
-	for index, article := range resp.Articles {
-		URL := utils.GetShortURL(article.URL)
-		shortUrls[index] = URL
-	}
+	items := utils.MapToString(resp.Articles, "URL")
+	shortUrls := utils.GetShortURLArray(items)
 
 	moe.Stop()
-	for index, article := range resp.Articles {
-		URL := shortUrls[index]
+	for _, article := range resp.Articles {
+		URL := shortUrls[article.URL]
 		Title := article.Title
 		if len(Title) > 75 {
 			Title = string([]rune(Title)[:72]) + "..."
 		}
-		row := []string{Title, URL}
+		row := []string{Title, *URL}
 		table.Append(row)
 	}
 	table.Render()
