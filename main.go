@@ -1,9 +1,10 @@
 package main
 
 import (
-	"os"
-	"github.com/biezhi/eve/utils"
 	"fmt"
+	"os"
+
+	"github.com/biezhi/eve/utils"
 )
 
 var (
