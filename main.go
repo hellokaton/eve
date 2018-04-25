@@ -66,10 +66,10 @@ func main() {
 		ShowNews("jiandan")
 	}
 	if options.HackNews {
-		ShowNewsApi("hacker-news")
+		ShowNews("hn")
 	}
 	if options.Reddit {
-		ShowNewsApi("reddit-r-all")
+		ShowNews("reddit")
 	}
 	if options.Medium {
 		ShowNews("medium")

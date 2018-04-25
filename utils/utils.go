@@ -1,21 +1,8 @@
 package utils
 
 import (
-	"encoding/json"
-	"io/ioutil"
-	"net/http"
 	"os"
-	"strings"
-	"sync"
-	"reflect"
 )
-
-// BaseArticle topic
-type BaseArticle struct {
-	Title   string `json:"title,omitempty"`
-	URL     string `json:"url,omitempty"`
-	Content string `json:"content,omitempty"`
-}
 
 // Options terminal args
 type Options struct {
@@ -81,64 +68,3 @@ func ParseArgs(args []string) *Options {
 	return options
 }
 
-// GetShortURL get sina short url
-func GetShortURL(url string) string {
-	reqURL := "http://api.t.sina.com.cn/short_url/shorten.json?source=3271760578&url_long=" + url
-	if url == "" {
-		return ""
-	}
-	var urlArr []map[string]interface{}
-	body := GetRequestBody(reqURL)
-	if err := json.Unmarshal(body, &urlArr); err != nil {
-		return ""
-	}
-	return urlArr[0]["url_short"].(string)
-}
-
-// GetRequestBody http get body
-func GetRequestBody(reqURL string) []byte {
-	resp, err := http.Get(reqURL)
-	if err != nil {
-		return nil
-	}
-	defer resp.Body.Close()
-	body, _ := ioutil.ReadAll(resp.Body)
-	return body
-}
-
-func RemoveSpace(s string) string {
-	s = strings.Replace(s, " ", "", -1)
-	s = strings.Replace(s, "\n", "", -1)
-	return s
-}
-
-func MapToString(structs []BaseArticle, fieldName string) []string {
-	result := make([]string, len(structs))
-	for _, item := range structs {
-		v := reflect.ValueOf(item)
-		f := v.FieldByName(fieldName)
-		result = append(result, f.String())
-	}
-	return result
-}
-
-var wg sync.WaitGroup
-var lock sync.Mutex
-
-func GetShortURLArray(longUrls []string) map[string]*string {
-	shortUrls := make(map[string]*string, len(longUrls))
-	for _, url := range longUrls {
-		wg.Add(1)
-		go func(url string) {
-			lock.Lock()
-			defer func() {
-				lock.Unlock()
-				wg.Done()
-			}()
-			URL := GetShortURL(url)
-			shortUrls[url] = &URL
-		}(url)
-	}
-	wg.Wait()
-	return shortUrls
-}
