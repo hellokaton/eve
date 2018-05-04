@@ -1,5 +1,7 @@
 # eve
 
+<img src="logo/evelogo-red.png" width="400" />
+
 👻 everyday explore, Github / HackNews / V2EX / Medium / Product Hunt.
 
 [![GoDoc](https://godoc.org/github.com/biezhi/eve/github?status.svg)](https://godoc.org/github.com/biezhi/eve/github) [![Build Status](https://travis-ci.org/biezhi/eve.svg?branch=master)](https://travis-ci.org/biezhi/eve)
